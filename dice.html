@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- animation link -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        body {
+            background: linear-gradient(to right, rgb(89, 89, 223), rgb(219, 136, 150));
+        }
+
+        .container {
+            text-align: center;
+            margin: auto;
+            width: 100%;
+        }
+
+        .result {
+            margin: 20px;
+            font-size: larger;
+            color: black;
+        }
+
+        .dice {
+            margin: 0px 50px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        p,
+        h1 {
+            font-size: 50px;
+        }
+
+        img {
+            width: 200px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1 data-aos="zoom-in-up"></h1>
+
+        <div class="dice" >
+            <p>Milan</p>
+            <img data-aos="fade-right">
+        </div>
+
+        <div class="dice">
+            <p>Shubhi</p>
+            <img data-aos="fade-left">
+        </div>
+    </div>
+
+
+    <script>
+        // generate a random
+        const firstRandomNum = Math.floor(Math.random() * 6) + 1
+
+        const firstDiceImage = '/Alea' + firstRandomNum + '.png';
+
+        document.querySelectorAll('img')[0].setAttribute('src', firstDiceImage);
+
+        // 2 player
+        const secondRandomNum = Math.floor(Math.random() * 6) + 1
+
+        const secondDiceImage = '/Alea' + secondRandomNum + '.png';
+
+        document.querySelectorAll('img')[1].setAttribute('src', secondDiceImage);
+
+        if (firstRandomNum > secondRandomNum) {
+            document.querySelector('h1').innerHTML = 'The winner is Milan';
+        }
+        else if (firstRandomNum < secondRandomNum) {
+            document.querySelector('h1').innerHTML = 'The winner is Shubhi';
+        }
+        else {
+            document.querySelector('h1').innerHTML = 'DRAW';
+        }
+
+
+    </script>
+
+    <!-- animation link -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+      </script>
+</body>
+
+</html>
